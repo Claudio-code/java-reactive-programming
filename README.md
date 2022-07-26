@@ -21,6 +21,22 @@
 | Thread-safe                                                                                                                       | N/A                                                        |
 | `fluxSink.requestedFromDownstream()` and `fluxSink.isCancelled()`                                                                 | N/A                                                        |
 
+
+### Schedulers
+| Schedulers Method | Usage                                        |
+|-------------------|----------------------------------------------|
+| BoundedElastic    | Network / time-consuming calls               |
+| Parallel          | CPU intensive tasks                          |
+| Single            | A single dedicated thread for one-off tasks  |
+| Immediate         | Current thread                               |
+
+
+### Operators for Scheduling
+| Operator    | Usage          |
+|-------------|----------------|
+| subscribeOn | for upstream   |
+| publishOn   | for downstream |
+
 ## Stack usada
 - Java 17 lts
 - Maven
