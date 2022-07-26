@@ -9,6 +9,15 @@
         - Pode emititr 0 ou N itens.
         - Pode ser seguido pelos metodos de onComplete / onError.
 
+---
+
+### Schedulers != Parallel-execution
+
+- All the operations are always executed in sequential.
+- Data is processed one by one via 1 thread in the ThreadPool for a Subscriber.
+- Schedulers.parallel() - Is a thread poll for CPU tasks. Does not mean parallel execution.
+
+---
 
 ### Flux - create / generate
 
@@ -21,6 +30,7 @@
 | Thread-safe                                                                                                                       | N/A                                                        |
 | `fluxSink.requestedFromDownstream()` and `fluxSink.isCancelled()`                                                                 | N/A                                                        |
 
+---
 
 ### Schedulers
 | Schedulers Method | Usage                                        |
@@ -30,12 +40,16 @@
 | Single            | A single dedicated thread for one-off tasks  |
 | Immediate         | Current thread                               |
 
+---
 
 ### Operators for Scheduling
 | Operator    | Usage          |
 |-------------|----------------|
 | subscribeOn | for upstream   |
 | publishOn   | for downstream |
+
+---
+---
 
 ## Stack usada
 - Java 17 lts
