@@ -1,4 +1,4 @@
-package com.reactive.overFlowStrategy;
+package com.reactive.programming.study.overFlowStrategy;
 
 import com.reactive.util.TimeUtil;
 import reactor.core.publisher.Flux;
