@@ -48,6 +48,16 @@
 | subscribeOn | for upstream   |
 | publishOn   | for downstream |
 
+----
+
+### Overflow Strategy
+| Strategy | Behavior                                                                    |
+|----------|-----------------------------------------------------------------------------|
+| Buffer   | Keep in memory                                                              |
+| Drop     | Once the queue is full, new items will be dropped                           |
+| Latest   | Once the queue is full, keep 1 latest item as and when it arrives, drop old |
+| Error    | Throw error to the downstream                                               |
+
 ---
 ---
 
