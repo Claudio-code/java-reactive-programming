@@ -58,10 +58,24 @@
 | Latest   | Once the queue is full, keep 1 latest item as and when it arrives, drop old |
 | Error    | Throw error to the downstream                                               |
 
+
+- Buffer
+    - With BUFFER strategy, as name suggests all values are buffered so that subscriber can receive all values. As per program below, buffer is infinite, so if published values are large in count & subscriber is too slow, then there is chance of out of memory just like Observable.
+
+- Drop
+    - DROP strategy drops the most recent next value if the downstream can’t keep up because its too slow. There are also ways provided to consume dropped values and handle them separately.
+
+- Latest
+    - LATEST strategy keeps only the latest next value, overwriting any previous value if the downstream can’t keep up because its too slow.
+
+
+- Error
+    - ERROR strategy throws OverflowException in case the downstream can’t keep up due to slowness. Publisher can handle exception & make sure to call error handle so that subscriber can do handling on subscriber side for such error scenarios.
+
+
 ---
 ---
 
 ## Stack used
 - Java 17 lts
 - Maven
-
