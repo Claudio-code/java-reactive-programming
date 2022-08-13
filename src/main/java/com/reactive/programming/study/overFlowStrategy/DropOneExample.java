@@ -23,8 +23,12 @@ public class DropOneExample {
         .doOnNext(i -> {
             TimeUtil.sleepMilleSeconds(10);
         })
-        .subscribe(i -> System.out.println("item: " + i));
+        .subscribe(i -> printThreadName("item: " + i));
 
         TimeUtil.sleepSeconds(10000);
+    }
+
+    private static void printThreadName(String msg) {
+        System.out.println(msg + "\t\t: Thread: " + Thread.currentThread().getName());
     }
 }

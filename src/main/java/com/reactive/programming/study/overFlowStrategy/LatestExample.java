@@ -9,7 +9,7 @@ public class LatestExample {
         Flux.create(fluxsink -> {
             for (int i = 0; i < 501; i++) {
                 fluxsink.next(i);
-                System.out.println("Pushed: " + i);
+                printThreadName("Pushed: " + i);
                 TimeUtil.sleepMilleSeconds(1);
             }
             fluxsink.complete();
@@ -19,6 +19,10 @@ public class LatestExample {
         .doOnNext(i -> {
             TimeUtil.sleepMilleSeconds(10);
         })
-        .subscribe(i -> System.out.println("item: " + i));
+        .subscribe(i -> printThreadName("item: " + i));
+    }
+
+    private static void printThreadName(String msg) {
+        System.out.println(msg + "\t\t: Thread: " + Thread.currentThread().getName());
     }
 }
